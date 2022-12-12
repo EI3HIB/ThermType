@@ -5,7 +5,7 @@ Basic code to print JS8Call logs to the terminal and/or a thermal printer.
 - TermType only prints slected text to the terminal (requires termcolor module)
 - ThermType prints selected text to a thermal printer and the terminal (requires termcolor and adafruit_thermal_printer modules)
 
-The code is very basic as I am just learning as I go along. 
+The code is very basic - I am just learning as I go along. 
 
 The thermal printer I'm using is from:
 https://shop.pimoroni.com/products/mini-thermal-printer?variant=28412531207
