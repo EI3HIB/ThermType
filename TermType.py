@@ -59,22 +59,22 @@ if __name__ == '__main__':
             termcolor.cprint((tr.fill(line, width=128)), 'green')      
       
         # Look at log - is it @AREN?
-        elif re.search(patrnTHREE, line)
+        elif re.search(patrnTHREE, line):
             termcolor.cprint((tr.fill(line, width=128)), 'cyan', attrs=["blink"])
             
         # Look at log - is it @RAYNET
-        elif re.search(patrnFOUR, line)
+        elif re.search(patrnFOUR, line):
             termcolor.cprint((tr.fill(line, width=128)), 'yellow', attrs=["blink"])
             
         # Look at log - is it @R1EMCOR
-        elif re.search(patrnFIVE, line)
+        elif re.search(patrnFIVE, line):
             termcolor.cprint((tr.fill(line, width=128)), 'magenta', attrs=["blink"])
 
         # Look at log - is it @APRSIS
-        elif re.search(patrnSIX, line)
+        elif re.search(patrnSIX, line):
             termcolor.cprint((tr.fill(line, width=128)), 'white')
             
         #Look at log - is it @ALLCALL
-        elif re.search(patrnSEVEN, line)
+        elif re.search(patrnSEVEN, line):
             termcolor.cprint((tr.fill(line, width=128)), 'white')
 
