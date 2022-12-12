@@ -77,7 +77,7 @@ if __name__ == '__main__':
         if re.search(patrnONE, line) and not re.search(patrnTWO, line):
             #printer.warm_up()
             printer.bold = True
-            termcolor.cprint((tr.fill(line, width=32)), 'green')
+            termcolor.cprint((tr.fill(line, width=128)), 'green')
             printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
             printer.justify = adafruit_thermal_printer.JUSTIFY_LEFT
             printer.print("FAO EI3HIB")
@@ -87,7 +87,7 @@ if __name__ == '__main__':
         
         # Look at log - is it my callsign AND I AM transmitting?
         elif re.search(patrnONE, line) and re.search(patrnTWO, line):
-            termcolor.cprint((tr.fill(line, width=32)), 'red')
+            termcolor.cprint((tr.fill(line, width=128)), 'red')
             # Uncomment code below to print on transmit
             # This also requires that you monitor ALL.TXT and not DIRECTED.TXT
             # See lines 63 and 64.
@@ -100,14 +100,15 @@ if __name__ == '__main__':
         
         # Look at log - is it @AREN and I am NOT transmitting?
         elif re.search(patrnTHREE, line) and not re.search(patrnTWO, line):
-            #printer.warm_up()
             printer.bold = True
-            termcolor.cprint((tr.fill(line, width=32)), 'cyan', attrs=["blink"])
+            termcolor.cprint((tr.fill(line, width=128)), 'cyan', attrs=["blink"])
             printer.size = adafruit_thermal_printer.SIZE_MEDIUM
-            printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
+            #printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
             printer.justify = adafruit_thermal_printer.JUSTIFY_CENTER
+            printer.inverse = True
             printer.print("@AREN")
-            printer.underline = None
+            printer.inverse = False
+            #printer.underline = None
             printer.justify = adafruit_thermal_printer.JUSTIFY_LEFT
             printer.size = adafruit_thermal_printer.SIZE_SMALL
             printer.print(tr.fill(line, width=32))
@@ -115,14 +116,15 @@ if __name__ == '__main__':
             
         # Look at log - is it @RAYNET and I am NOT transmitting?
         elif re.search(patrnFOUR, line) and not re.search(patrnTWO, line):
-            #printer.warm_up()
             printer.bold = True
-            termcolor.cprint((tr.fill(line, width=25)), 'yellow', attrs=["blink"])
+            termcolor.cprint((tr.fill(line, width=128)), 'yellow', attrs=["blink"])
             printer.size = adafruit_thermal_printer.SIZE_MEDIUM
-            printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
+            #printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
             printer.justify = adafruit_thermal_printer.JUSTIFY_CENTER
+            printer.inverse = True
             printer.print("RAYNET")
-            printer.underline = None
+            printer.inverse = False
+            #printer.underline = None
             printer.justify = adafruit_thermal_printer.JUSTIFY_LEFT
             printer.size = adafruit_thermal_printer.SIZE_SMALL
             printer.print(tr.fill(line, width=32))
@@ -130,14 +132,15 @@ if __name__ == '__main__':
             
         # Look at log - is it @R1EMCOR and I am NOT transmitting?
         elif re.search(patrnFIVE, line) and not re.search(patrnTWO, line):
-            #printer.warm_up()
             printer.bold = True
-            termcolor.cprint((tr.fill(line, width=25)), 'magenta', attrs=["blink"])
+            termcolor.cprint((tr.fill(line, width=128)), 'magenta', attrs=["blink"])
             printer.size = adafruit_thermal_printer.SIZE_MEDIUM
-            printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
+            #printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
             printer.justify = adafruit_thermal_printer.JUSTIFY_CENTER
+            printer.inverse = True
             printer.print("@R1EMCOR")
-            printer.underline = None
+            printer.inverse = False
+            #printer.underline = None
             printer.justify = adafruit_thermal_printer.JUSTIFY_LEFT
             printer.size = adafruit_thermal_printer.SIZE_SMALL
             printer.print(tr.fill(line, width=32))
@@ -145,9 +148,8 @@ if __name__ == '__main__':
 
         # Look at log - is it @APRSIS and I am NOT transmitting?
         elif re.search(patrnSIX, line) and not re.search(patrnTWO, line):
-            #printer.warm_up()
             printer.bold = True
-            termcolor.cprint((tr.fill(line, width=20)), 'magenta')
+            termcolor.cprint((tr.fill(line, width=128)), 'white')
             printer.size = adafruit_thermal_printer.SIZE_SMALL
             printer.underline = adafruit_thermal_printer.UNDERLINE_THIN
             printer.print("@APRSIS")
@@ -157,9 +159,8 @@ if __name__ == '__main__':
             
         #Look at log - is it @ALLCALL and I am NOT transmitting?
         elif re.search(patrnSEVEN, line) and not re.search(patrnTWO, line):
-            #printer.warm_up()
             #printer.bold = True
-            termcolor.cprint((tr.fill(line, width=20)), 'blue')
+            termcolor.cprint((tr.fill(line, width=128)), 'white')
             #printer.size = adafruit_thermal_printer.SIZE_SMALL
             #printer.underline = adafruit_thermal_printer.UNDERLINE_THIN
             #printer.print("@ALLCALL")
