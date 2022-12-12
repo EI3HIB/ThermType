@@ -1,18 +1,16 @@
 # ThermType & TermType
 
-Basic code to print JS8Call logs to the terminal and/or a thermal printer.
+Basic code to print JS8Call logs to the terminal and/or a thermal printer - the idea is to capture & record relevant JS8Call traffic of interest.
 
-- TermType only prints slected text to the terminal (requires termcolor module)
-- ThermType prints selected text to a thermal printer and the terminal (requires termcolor and adafruit_thermal_printer modules)
+- TermType.py only prints slected text to the terminal (requires termcolor module)
+- ThermType.py prints selected text to a thermal printer and the terminal (requires termcolor and adafruit_thermal_printer modules)
 
-The code is very basic - I am just learning as I go along. 
+The code is *very* basic - I am just learning as I go along. 
 
 The thermal printer I'm using is from:
 https://shop.pimoroni.com/products/mini-thermal-printer?variant=28412531207
 
 My next steps are to try and see if I can get it working with the JS8Call API for better message handling capabilities.
-
-The idea behind this is to captur, record & show relevant JS8Call traffic of interest.
 
 With minor adjustments the code should easily lend itself to monitoring Direwolf (e.g. APRS messages) and perhaps PAT (e.g. email notification).
 
