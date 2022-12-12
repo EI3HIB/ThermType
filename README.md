@@ -18,4 +18,3 @@ With minor adjustments the code should easily lend itself to monitoring Direwolf
 
 
 ![working](https://user-images.githubusercontent.com/120377036/207146712-1145ed90-e14a-4da9-853f-27035d58a370.jpg)
-![terminaloutput](https://user-images.githubusercontent.com/120377036/207146739-9e26c922-dd10-4662-9911-67e45bab7b20.png)
