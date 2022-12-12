@@ -36,7 +36,8 @@ patrnTHREE = "@AREN" # AREN group
 patrnFOUR = "RAYNET" # RAYNET group - I left out @ as there are multiple RAYNET groups using prefixes
 patrnFIVE = "@R1EMCOR" # IARU Region 1 Emergency Co-ordination
 patrnSIX = "@APRSIS" # APRS-IS monitoring
-patrnSEVEN= "@ALLCALL" # ALLCALL group monitoring
+patrnSEVEN = "@ALLCALL" # ALLCALL group monitoring
+patrnEIGHT = "HEARTBEAT SNR" # For filtering HB responses
 
 termcolor.cprint("MONITORING: \n"+patrnONE+"\n"+patrnTHREE+"\n"+patrnFOUR+"\n"+patrnFIVE+"\n"+patrnSIX+"\n", 'white')
 #printer.bold = True
@@ -73,17 +74,30 @@ if __name__ == '__main__':
         # change behaviour if I was transmitting.
         # This check is not required for DIRECTED.TXT
         # but is left in to make ALL.TXT monitoring easier.
+        
         # Look at log - is it my callsign AND I am NOT transmitting?
-        if re.search(patrnONE, line) and not re.search(patrnTWO, line):
-            #printer.warm_up()
+        #if re.search(patrnONE, line) and not re.search(patrnTWO, line):
+        
+        # Look at log - is it my callsign AND NOT a HB response?    
+        if re.search(patrnONE, line) and not re.search(patrnEIGHT, line):
             printer.bold = True
-            termcolor.cprint((tr.fill(line, width=128)), 'green')
+            termcolor.cprint((tr.fill(line, width=128)), 'green', attrs=["blink"])
             printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
             printer.justify = adafruit_thermal_printer.JUSTIFY_LEFT
             printer.print("FAO EI3HIB")
             printer.underline = None
             printer.print(tr.fill(line, width=32))
-            printer.feed(1)
+            printer.feed(2)
+            
+        elif re.search(patrnONE, line) and re.search(patrnEIGHT, line):
+            #printer.bold = True
+            termcolor.cprint((tr.fill(line, width=128)), 'green')
+            #printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
+            #printer.justify = adafruit_thermal_printer.JUSTIFY_LEFT
+            #printer.print("FAO EI3HIB")
+            #printer.underline = None
+            #printer.print(tr.fill(line, width=32))
+            #printer.feed(1)
         
         # Look at log - is it my callsign AND I AM transmitting?
         elif re.search(patrnONE, line) and re.search(patrnTWO, line):
