@@ -95,7 +95,7 @@ if __name__ == '__main__':
             alarm_tone()
             confidence_tone()
 
-        # If it's a HB response to me - output to terminal, don't send to printer.    
+        # If it's a HB response to me - output to terminal, don't blink.  
         elif re.search(callsign, line) and re.search(filterONE, line):
             termcolor.cprint((tr.fill(line, width=128)), 'green')
 
