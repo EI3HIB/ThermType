@@ -2,7 +2,7 @@
 
 Basic code to print JS8Call logs to the terminal and/or a thermal printer - the idea is to capture & record relevant JS8Call traffic of interest.
 
-  - TermType.py only prints selected text to the terminal (requires termcolor module)
+  - TermType.py prints selected text to the terminal & plays sounds (requires termcolor & pygame modules)
 
   - ThermType.py prints selected text to a thermal printer and the terminal (requires termcolor and adafruit_thermal_printer modules)
     it also can illuminate LEDs and play sounds (requires pygame module) based on the messages received. This is being done with a Raspberry Pi 4, with the     printer and LEDs all connected to the GPIO header pins
