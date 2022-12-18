@@ -35,7 +35,6 @@ termcolor.cprint("MONITORING: \n"+callsign+"\n"+groupONE+"\n"+groupTWO+"\n"+grou
 def handler(signum, frame):
     res = input("Ctrl-c was pressed. Do you really want to exit? y/n ")
     if res == 'y':
-        GPIO.output(17, False)
         time.sleep(1)
         exit(1)
 
