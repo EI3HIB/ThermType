@@ -200,6 +200,7 @@ if __name__ == '__main__':
             red_led()
             # Uncomment below to enable sounds for @ALLCALL
             #message_tone()
+            #confidence_tone()
 
         # Amber led illuminates when a non priority message is decoded amd written to DIRECTED.TXT
         # For testing - uncomment lines below to send everything to terminal/printer/speaker

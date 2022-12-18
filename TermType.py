@@ -132,8 +132,8 @@ if __name__ == '__main__':
             termcolor.cprint((tr.fill(line, width=128)), 'white')
             # Uncomment below to enable sounds for @ALLCALL
             #message_tone()
+            #confidence_tone()
 
-        # Amber led illuminates when a non priority message is decoded amd written to DIRECTED.TXT
         # For testing - uncomment lines below to send everything to terminal/speaker
         #else:
             #termcolor.cprint((tr.fill(line, width=128)), 'blue')
