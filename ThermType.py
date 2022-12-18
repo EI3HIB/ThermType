@@ -50,12 +50,12 @@ printer.print("STARTUP: "+dt_string+"\n")
 useroptions = config_object["USEROPTIONS"]
 
 callsign = (useroptions["callsign"]) # My Call
-groupONE = (useroptions["groupONE"]) 
-groupTWO = (useroptions["groupTWO"]) 
-groupTHREE = (useroptions["groupTHREE"]) 
-groupFOUR = (useroptions["groupFOUR"]) 
-groupFIVE = (useroptions["groupFIVE"])
-filterONE = (useroptions["filterONE"])
+groupONE = (useroptions["groupone"]) 
+groupTWO = (useroptions["grouptwo"]) 
+groupTHREE = (useroptions["groupthree"]) 
+groupFOUR = (useroptions["groupfour"]) 
+groupFIVE = (useroptions["groupfive"])
+filterONE = (useroptions["filterone"])
 
 termcolor.cprint("MONITORING: \n"+callsign+"\n"+groupONE+"\n"+groupTWO+"\n"+groupTHREE+"\n"+groupFOUR+"\n", 'white')
 printer.print("MONITORING: \n"+callsign+"\n"+groupONE+"\n"+groupTWO+"\n"+groupTHREE+"\n"+groupFOUR+"\n")
