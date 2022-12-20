@@ -147,7 +147,7 @@ if __name__ == '__main__':
         # Is it my callsign AND NOT a HB response?    
         if re.search(callsign, line) and not re.search(filterONE, line):
             termcolor.cprint((tr.fill(line, width=128)), 'green', attrs=["blink"])
-            addressTo = callsign
+            addressedTo = callsign
             use_printer_ordinary(addressedTo)
             red_led()
             alarm_tone()
@@ -188,11 +188,12 @@ if __name__ == '__main__':
         # Is it @APRSIS?
         elif re.search(groupFOUR, line):
             termcolor.cprint((tr.fill(line, width=128)), 'white')
-            addressedTo = groupFOUR
-            use_printer_ordinary(addressedTo)
-            red_led()
-            message_tone()
-            confidence_tone()
+            # Uncomment below to enable printing, sounds etc
+            #addressedTo = groupFOUR
+            #use_printer_ordinary(addressedTo)
+            amber_led()
+            #message_tone()
+            #confidence_tone()
             
         # Is it @ALLCALL?
         elif re.search(groupFIVE, line):
