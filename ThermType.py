@@ -14,6 +14,7 @@ import textwrap as tr
 
 from datetime import datetime
 from configparser import ConfigParser
+from multiprocessing import Process
 
 config_object = ConfigParser()
 config_object.read("config.ini")
@@ -69,15 +70,24 @@ def handler(signum, frame):
 
 signal.signal(signal.SIGINT, handler)
 
+#def amber_led():
+#    GPIO.output(22, True)
+#    time.sleep(2)
+#    GPIO.output(22, False)
+
 def amber_led():
-    GPIO.output(22, True)
-    time.sleep(1)
-    GPIO.output(22, False)
-        
+    for i in range(5):
+        GPIO.output(22, True)
+        time.sleep(0.5)
+        GPIO.output(22, False)
+        time.sleep(0.5)
+
 def red_led():
-    GPIO.output(23, True)
-    time.sleep(5)
-    GPIO.output(23, False)
+    for i in range(20):
+        GPIO.output(23, True)
+        time.sleep(0.5)
+        GPIO.output(23, False)
+        time.sleep(0.5)
         
 def confidence_tone():
     pygame.mixer.init()
@@ -97,7 +107,6 @@ def alarm_tone():
     pygame.time.wait(10000)   
         
 confidence_tone()
-
 
 def follow(thefile):
     '''generator function that yields new lines in a file
@@ -122,7 +131,7 @@ if __name__ == '__main__':
     
     logfile = open("/home/pi/.local/share/JS8Call/DIRECTED.TXT","r", encoding="ascii", errors="ignore")
     loglines = follow(logfile)
-    # iterate over the generator
+    
    
     def use_printer_ordinary(addressedTo):
         printer.underline = adafruit_thermal_printer.UNDERLINE_THICK
@@ -143,6 +152,7 @@ if __name__ == '__main__':
         printer.print(tr.fill(line, width=32))
         printer.feed(2)
    
+    # Iterate over the generator
     for line in loglines:
         # Is it my callsign AND NOT a HB response?    
         if re.search(callsign, line) and not re.search(filterONE, line):
@@ -209,6 +219,14 @@ if __name__ == '__main__':
             amber_led()
             #use_printer_ordinary(addressedTo)
             #termcolor.cprint((tr.fill(line, width=128)), 'blue')
-            #message_tone()
+            #addressedTo = "TESTING"
+            #p1 = Process(use_printer_ordinary(addressedTo))
+            #p1.start()
+            #p2 = Process(termcolor.cprint((tr.fill(line, width=128)), 'blue'))
+            #p2.start()
+            #p3 = Process(amber_led())
+            #p3.start()
+            #p4 = Process(message_tone())
+            #p4.start()
             #confidence_tone()
 
