@@ -7,12 +7,15 @@ Basic code to print JS8Call logs to the terminal and/or a thermal printer - the 
   - ThermType.py prints selected text to a thermal printer and the terminal (requires termcolor and adafruit_thermal_printer modules)
     it also can illuminate LEDs and play sounds (requires pygame module) based on the messages received. This is being done with a Raspberry Pi 4, with the     printer and LEDs all connected to the GPIO header pins
     
-  - ThermType-ESCPOS-Testing.py is a version designed to operate using generic thermal receipt printers over USB - this is in early testing and does not       include the code for Serial printers, playing sounds, blinking LEDs etc. 
+  - ThermType-ESCPOS-Testing.py is a version designed to operate using generic thermal receipt printers over USB - this is in early testing and does not       include the code for Serial printers, playing sounds, blinking LEDs etc. Requires pyescpos[usb]
 
-    You will need to update:
-    conn = USBConnection.create('28e9:0289,interface=0,ep_out=3,ep_in=0') # with your own printer identifier (e.g. 28e9:0289)
-    And point:
-    logfile = open("/home/daithi/.local/share/JS8Call/DIRECTED.TXT","r", encoding="ascii", errors="ignore") # to your own DIRECTED.TXT location
+       You will need to update:
+       conn = USBConnection.create('28e9:0289,interface=0,ep_out=3,ep_in=0') # with your own printer identifier (e.g. 28e9:0289)
+       And point:
+       logfile = open("/home/daithi/.local/share/JS8Call/DIRECTED.TXT","r", encoding="ascii", errors="ignore") # to your own DIRECTED.TXT location
+    
+  - TermType-DW.py & ThermType-DW are designed to work with Direwolf logs, again very early testing - as configured here TermType-DW uses                       simplified code and doesn't include the printer settings, but it demonstrates how we sort through the data and calculate a bearing and azimuth.
+    ThermType-DW.py is more complicated and uses pyescpos[usb] to send specific APRS data to the printer - in the code, I only allow packets that I have       received directly, and that don't come from EI2LLP and EI2MLP repeaters, to be sent to the printer.
 
 The code is *very* basic - I am just learning Python as I go along. 
 
