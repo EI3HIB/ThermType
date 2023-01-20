@@ -17,6 +17,8 @@ Basic code to print JS8Call logs to the terminal and/or a thermal printer - the 
   - TermType-DW.py & ThermType-DW are designed to work with Direwolf logs, again very early testing - as configured here TermType-DW uses                       simplified code and doesn't include the printer settings, but it demonstrates how we sort through the data and calculate a bearing and azimuth.
     ThermType-DW.py is more complicated and uses pyescpos[usb] to send specific APRS data to the printer - in the code, I only allow packets that I have       received directly, and that don't come from EI2LLP and EI2MLP repeaters, to be sent to the printer.
     
+    ![N2YOSatCheck](https://user-images.githubusercontent.com/120377036/213747381-6a87f266-bdd7-4762-97cb-c349ef88715f.png)
+
    - checkN2YO-Example.py was inspired by this Reddit post:                        
      https://www.reddit.com/r/amateurradio/comments/10ft90z/at_midnight_my_thermal_printer_spits_out_a_list/
      I left out the printing code as it's easy to add in - this should help people get started.
